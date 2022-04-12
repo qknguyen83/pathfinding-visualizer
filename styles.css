@@ -1,0 +1,129 @@
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: #fdfcfa;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  background-color: #0b3d91;
+}
+
+.title,
+.description {
+  font-family: 'Roboto', sans-serif;
+  color: #fdfcfa;
+}
+
+.select,
+.button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #1e2431;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #13eba2;
+}
+
+#grid {
+  margin-top: 2.5vh;
+  height: 80vh;
+}
+
+.grid-disabled {
+  pointer-events: none;
+}
+
+.row {
+  display: flex;
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
+
+.node {
+  user-select: none;
+  border: solid 1px #00beda;
+  background-color: #fdfcfa;
+}
+
+.start {
+  border-color: #0000ff;
+  background-color: #0000ff;
+}
+
+.end {
+  border-color: #fc3d21;
+  background-color: #fc3d21;
+}
+
+.blocked {
+  animation: blocked-animation 0.5s ease-out forwards;
+}
+
+@keyframes blocked-animation {
+  0% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #1e2431;
+    background-color: #1e2431;
+  }
+}
+
+.visited {
+  animation: visited-animation 0.5s ease-in-out forwards;
+}
+
+@keyframes visited-animation {
+  0% {
+    transform: scale(1);
+    background-color: #ffd400;
+  }
+  10% {
+    transform: scale(0.1);
+    background-color: #13eba2;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #13eba2;
+  }
+}
+
+.path {
+  border-color: #ffd400;
+  animation: path-animation 0.5s ease-in-out forwards, path-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes path-animation {
+  0% {
+    transform: scale(0.3);
+    background-color: #ffd400;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #ffd400;
+  }
+}
+
+@keyframes path-pulse {
+  0% {
+    background-color: #ffd400;
+  }
+  50% {
+    border-color: #eba400;
+    background-color: #eba400;
+  }
+  100% {
+    background-color: #ffd400;
+  }
+}

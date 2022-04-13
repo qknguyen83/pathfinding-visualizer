@@ -8,6 +8,8 @@ The application features:
 - Breadth first search
 - Depth first search
 
+Maze generation is done by running randomized depth first search, aka the recursive backtracking algorithm
+
 Inspired by: https://github.com/clementmihailescu/Pathfinding-Visualizer
 
 Color reference (because I'm so bad at coloring things!): https://github.com/hisham-maged10/path-finder

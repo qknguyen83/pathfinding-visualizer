@@ -25,10 +25,15 @@ body {
   flex-grow: 1;
 }
 
-.title,
+.title {
+  font-family: 'Roboto', sans-serif;
+  color: #fdfcfa;
+}
+
 .description {
   font-family: 'Roboto', sans-serif;
   color: #fdfcfa;
+  margin-bottom: 8px;
 }
 
 .select,

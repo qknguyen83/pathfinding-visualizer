@@ -6,12 +6,23 @@ body {
 
 #navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 15vh;
   padding-left: 5vh;
   padding-right: 5vh;
   background-color: #0b3d91;
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.sub-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .title,
@@ -29,6 +40,33 @@ body {
   outline: none;
   cursor: pointer;
   background-color: #13eba2;
+}
+
+@media (max-width: 1200px) {
+  .description {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    height: 70%;
+  }
+  .sub-container {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    flex-direction: column;
+    height: 90%;
+  }
+  .sub-container {
+    justify-content: space-around;
+  }
 }
 
 #grid {

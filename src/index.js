@@ -1,3 +1,4 @@
+import './index.css';
 import setupGrid from './utils/setupGrid.js';
 import aStar from './algos/aStar.js';
 import dijkstra from './algos/dijkstra.js';
@@ -11,7 +12,7 @@ setupGrid();
 const nodes = document.getElementsByClassName('node');
 const algosButton = document.getElementById('algos');
 const visualizeButton = document.getElementById('visualize');
-const resetButton = document.getElementById('reset');
+const clearButton = document.getElementById('clear');
 const generateMazeButton = document.getElementById('generateMaze');
 
 let start = false;
@@ -66,10 +67,11 @@ Array.prototype.forEach.call(nodes, (node) => {
 });
 
 visualizeButton.onclick = () => {
+  reset(['visited', 'path']);
   visualize(25);
 };
 
-resetButton.onclick = () => {
+clearButton.onclick = () => {
   reset(['blocked', 'visited', 'path']);
 };
 

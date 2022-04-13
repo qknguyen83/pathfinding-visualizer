@@ -3,6 +3,7 @@ import paramsExtractor from '../utils/paramsExtractor.js';
 
 const dijkstra = () => {
   const [startNode, endNode, numRow, numCol, blockedNodes] = paramsExtractor();
+  if (startNode === endNode) return [];
 
   const pathFindingRecord = [];
 

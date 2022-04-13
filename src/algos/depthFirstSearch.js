@@ -2,6 +2,7 @@ import paramsExtractor from '../utils/paramsExtractor.js';
 
 const depthFirstSearch = () => {
   const [startNode, endNode, numRow, numCol, blockedNodes] = paramsExtractor();
+  if (startNode === endNode) return [];
 
   const pathFindingRecord = [];
   pathFindingRecord.push([startNode, startNode]);

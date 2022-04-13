@@ -7,6 +7,7 @@ const manhattanDistance = (a, b) => {
 
 const aStar = () => {
   const [startNode, endNode, numRow, numCol, blockedNodes] = paramsExtractor();
+  if (startNode === endNode) return [];
 
   const pathFindingRecord = [];
 

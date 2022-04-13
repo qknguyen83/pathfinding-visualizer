@@ -1,11 +1,19 @@
-const visualizer = (pathFindingRecord, delay) => {
-  const body = document.getElementById('grid');
-  body.className = 'grid-disabled';
+import stateToggle from './stateToggle.js';
+import paramsExtractor from './paramsExtractor.js';
 
-  for (let i = 1; i < pathFindingRecord.length - 1; i++) {
+const visualizer = (pathFindingRecord, delay) => {
+  if (pathFindingRecord.length < 2) return;
+
+  const params = paramsExtractor();
+
+  stateToggle();
+
+  for (let i = 0; i < pathFindingRecord.length; i++) {
     setTimeout(() => {
       const node = document.getElementById(`node-${pathFindingRecord[i][0]}`);
-      node.className = node.className + ' visited';
+      if (!node.className.includes('start') && !node.className.includes('end')) {
+        node.className = node.className + ' visited';
+      }
     }, delay * i);
   }
 
@@ -18,15 +26,21 @@ const visualizer = (pathFindingRecord, delay) => {
   path.push(pathFindingRecord[0][0]);
   path.reverse();
 
-  setTimeout(() => {
-    for (let i = 1; i < path.length - 1; i++) {
-      setTimeout(() => {
-        const node = document.getElementById(`node-${path[i]}`);
-        node.className = node.className + ' path';
-        if (i === path.length - 2) body.className = '';
-      }, delay * i);
-    }
-  }, delay * pathFindingRecord.length);
+  if (path.length > 2 && path[path.length - 1] === params[1]) {
+    setTimeout(() => {
+      for (let i = 1; i < path.length - 1; i++) {
+        setTimeout(() => {
+          const node = document.getElementById(`node-${path[i]}`);
+          node.className = node.className + ' path';
+          if (i === path.length - 2) stateToggle();
+        }, delay * i);
+      }
+    }, delay * pathFindingRecord.length);
+  } else {
+    setTimeout(() => {
+      stateToggle();
+    }, delay * pathFindingRecord.length);
+  }
 };
 
 export default visualizer;
